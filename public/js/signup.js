@@ -21,9 +21,6 @@ export const signup = async (name, email, passwordConfirm, password) => {
       }, 1500);
     }
   } catch (err) {
-    showAlert(
-      'error',
-      err.response.data.message.replace('passwordConfirm', '') // userModel ang gumawa ng error
-    );
+    showAlert('error', 'await');
   }
 };
