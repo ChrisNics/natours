@@ -64,7 +64,6 @@ exports.getMe = (req, res, next) => {
 exports.updateMe = catchAsync(async (req, res, next) => {
   // console.log(req.file);
   // console.log(req.body);
-  console.log('Nakarating ako');
 
   // 1) Create error if user POSTS password data
   if (req.body.password || req.body.passwordConfirm) {
@@ -80,7 +79,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   const filteredBody = filteredObj(req.body, 'name', 'email');
   if (req.file) filteredBody.photo = req.file.filename;
   // 3) Update user document
-  console.log(filteredBody);
+  // console.log(filteredBody);
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
     new: true,
     runValidators: true,

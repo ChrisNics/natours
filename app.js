@@ -16,6 +16,7 @@ const viewRouter = require('./routes/viewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 const cookieParser = require('cookie-parser');
 
+const compression = require('compression');
 // Start express app
 const app = express();
 
@@ -77,6 +78,8 @@ app.use(
   })
 );
 
+app.use(compression());
+
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
@@ -98,5 +101,3 @@ app.all('*', (req, res, next) => {
 app.use(globalErrorHandler);
 
 module.exports = app;
-
-// TANGINA ERROR, CANT FIND /BUNDLE.JS AMPOTA
